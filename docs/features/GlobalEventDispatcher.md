@@ -64,7 +64,7 @@ Listening to events
 You can listen for messages on the global event dispatcher like so:
 
 ```csharp
-dispatcher.AddListener(ExampleEvent.Type.ACTION_1, OnAction1);
+dispatcher.AddEventListener(ExampleEvent.Type.ACTION_1, OnAction1);
 
 void OnAction1()
 {
@@ -75,7 +75,7 @@ void OnAction1()
 If you require the IEvent you can get the data like this:
 
 ```csharp
-dispatcher.AddListener(ExampleEvent.Type.ACTION_1, OnAction1);
+dispatcher.AddEventListener(ExampleEvent.Type.ACTION_1, OnAction1);
 
 void OnAction1(IEvent evt)
 {
@@ -86,7 +86,7 @@ void OnAction1(IEvent evt)
 And if you don't want to cast in your function, you can get your typed event like so:
 
 ```csharp
-dispatcher.AddListener<ExampleEvent>(ExampleEvent.Type.ACTION_1, OnAction1);
+dispatcher.AddEventListener<ExampleEvent>(ExampleEvent.Type.ACTION_1, OnAction1);
 
 void OnAction1(ExampleEvent evt)
 {
@@ -95,7 +95,7 @@ void OnAction1(ExampleEvent evt)
 ```
 
 > *Note:* You can add listener like this too without generics
-	> ```dispatcher.AddListener(ExampleEvent.Type.ACTION_1, (Action<ExampleEvent>)OnAction1);```
+	> ```dispatcher.AddEventListener(ExampleEvent.Type.ACTION_1, (Action<ExampleEvent>)OnAction1);```
 
 It's best practice to only listen from an event from a Mediator (not a Service or Model). Communicating to Models/Services through the global event dispatcher should be done via [Commands](./Commands.md).
 

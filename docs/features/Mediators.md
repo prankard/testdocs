@@ -171,7 +171,9 @@ public class ExampleMediator : IMediator
 }
 ```
 
-Now, that was relatively painless. Although we spent a bit of time making sure we cleaned up the event listeners in the destroy. If we extend Mediator we don't have to do that.
+Now, that was relatively painless. If you'd like to know how to get data when listening to your event. Look at the [Listening To Events](./GlobalEventDispatcher.md#listening-to-events) section.
+
+Although we spent a bit of time making sure we cleaned up the event listeners in the destroy. If we extend Mediator we don't have to do that.
 
 ```csharp
 public class ExampleMediator : Mediator
