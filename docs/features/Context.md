@@ -184,7 +184,7 @@ public class XMLMatcher : IMatcher
 
 
 From here
-------------
+---------
 
 * [Readme](../../README.md)
 	* [A Brief Overview](../ABriefOverview.md)
