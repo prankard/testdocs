@@ -72,7 +72,7 @@ void OnAction1()
 }
 ```
 
-What? Where's my data tied in the event?
+If you require the IEvent you can get the data like this:
 
 ```csharp
 dispatcher.AddListener(ExampleEvent.Type.ACTION_1, OnAction1);
@@ -83,7 +83,7 @@ void OnAction1(IEvent evt)
 }
 ```
 
-That's not good enough, I'm bored of casting, gimmie *my* event.
+And if you don't want to cast in your function, you can get your typed event like so:
 
 ```csharp
 dispatcher.AddListener<ExampleEvent>(ExampleEvent.Type.ACTION_1, OnAction1);
@@ -94,7 +94,7 @@ void OnAction1(ExampleEvent evt)
 }
 ```
 
-> *Note:* You can add listener like this
+> *Note:* You can add listener like this too without generics
 	> ```dispatcher.AddListener(ExampleEvent.Type.ACTION_1, (Action<ExampleEvent>)OnAction1);```
 
 It's best practice to only listen from an event from a Mediator (not a Service or Model). Communicating to Models/Services through the global event dispatcher should be done via [Commands](./Commands.md).
@@ -119,3 +119,22 @@ Why can't we use regular events?
 Unfortunately, events rely on the subscriber knowing the delegate type. This system allows you to not know the type and the data will be cast by the DynamicInvoke function. 
 
 This way, we can downcast the type to IEvent, get the message key. Send it to the appropriate people and upcast it back to how they expect it.
+
+From here
+------------
+
+* [Readme](../../README.md)
+	* [A Brief Overview](../ABriefOverview.md)
+	* [Features in Detail](../FeaturesInDetail.md)
+		* [Context](./Context.md)
+		* [Injector](./Injector.md)
+		* [Global Event Dispatcher](./GlobalEventDispatcher.md)
+		* [Commands](./Commands.md)
+		* [Mediators](./Mediators.md)
+		* [Guards](./Guards.md)
+		* [Hooks](./Hooks.md)
+		* [View Processor](./ViewProcessor.md)
+		* [Logger](./Logger.md)
+	* [Platforms](../Platforms.md)
+	* [Common Problems](../CommonProblems.md)
+	* [The internals (how it all works)](../TheInternals.md)
