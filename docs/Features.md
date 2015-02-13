@@ -1,6 +1,6 @@
 
-Features In Detail
-==============
+Features
+========
 
 #### [The Context](./features/Context.md)
 
@@ -32,18 +32,23 @@ Guards are tiny classes that simply Approve allowing other code to execute. We u
 #### [Hooks](./features/Hooks.md)
 
 Hooks are tiny classes that you can attach to the end of other executing code.
-Like Guards, they are used in the framework after a Command has been fired, Mediator has been created and View Processors have been handled.
+Like Guards, they are used in the framework before a Command has been fired, Mediator has been Initialized and View Processors have been handled.
 
 #### [View Processor](./features/ViewProcessor.md)
 
-asdf
+todo
+
+#### [Logger](./features/Logger.md)
+
+The logger is a simple tool to help you debug. It's logs with four different LogLevels and has the ability to tie in to your own systems. 
+You should be using the logger to debug when you write your extensions as it's useful for other people to see what's going on if things are not working.
 
 From here
 ------------
 
 * [Readme](../README.md)
 	* [A Brief Overview](./ABriefOverview.md)
-	* [Features in Detail](./FeaturesInDetail.md)
+	* [Features](./Features.md)
 	* [Platforms](./Platforms.md)
 	* [Common Problems](./CommonProblems.md)
 	* [The internals (how it all works)](./TheInternals.md)

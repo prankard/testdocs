@@ -43,6 +43,6 @@ From here
 
 * [Readme](../README.md)
 	* [A Brief Overview](./ABriefOverview.md)
-	* [Features in Detail](./FeaturesInDetail.md)
+	* [Features](./Features.md)
 	* [Common Problems](./CommonProblems.md)
 	* [The internals (how it all works)](./TheInternals.md)

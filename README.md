@@ -27,7 +27,7 @@ Getting Started
 ------------------
 
 * [A Brief Overview](./docs/ABriefOverview.md)
-* [Features in Detail](./docs/FeaturesInDetail.md)
+* [Features](./docs/Features.md)
 * [Platforms](./docs/Platforms.md)
 * [Common Problems](./docs/CommonProblems.md)
 * [The internals (how it all works)](./docs/TheInternals.md)
