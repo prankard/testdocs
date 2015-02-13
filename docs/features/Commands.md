@@ -79,7 +79,95 @@ public class ExampleCommand : ICommand
 }
 ```
 
+Downcasting Events
+------------------
 
+You can also downcast your event type to IEvent in your command if you want to tie more data event types to the same command. 
+
+Say I have ```EventClassA``` and ```EventClassB``` which both extend ```Event```  _(which implements ```IEvent```)_.
+
+If I map the event type down to IEvent in the mapping.
+
+```csharp
+eventCommandMap.Map<IEvent>(EventClassA.Type.ACTION_1).ToCommand<MultipleEventCommand>();
+eventCommandMap.Map<IEvent>(EventClassB.Type.ACTION_3).ToCommand<MultipleEventCommand>();
+```
+
+And dispatch the regular events:
+
+```csharp
+dispatcher.Dispatch(new EventClassA(EventClassA.Type.ACTION_1));
+dispatcher.Dispatch(new EventClassB(EventClassB.Type.ACTION_3));
+```
+
+Then I can get both data types from within the command:
+
+```csharp
+public class MultipleEventCommand : ICommand
+{
+	[Inject]
+	public IEvent evt;
+
+	public void Execute()
+	{
+		if (evt is EventClassA)
+		{
+			// Get data from A
+		}
+		else if (evt is EventClassB)
+		{
+			// Get data from B
+		}
+	}
+}
+```
+
+Detaining a command
+-------------------
+
+It's possible to make a command live longer than the execute function. This is useful if you want to do so something asynchronous. But before you do, make sure you don't want to wrap this functionality into a service.
+
+You'll need to detain your command or else your command may get picked up by the garbage collector.
+
+```csharp
+public class DetainedCommand()
+{
+	[Inject]
+	public IEventDispatcher dispatcher;
+
+	[Inject]
+	public ExampleService service;
+
+	[Inject]
+	public IContext context;
+	
+	public void Execute()
+	{
+		context.Detain(this);
+		
+		service.OnSomethingComplete += HandleDoneSuccess;
+		service.OnSomethingFailed += HandleDoneFail;
+		service.DoSomethingForLater();
+	}
+
+	public void HandleDoneSuccess()
+	{
+		dispatcher.Dispatch(new ExampleEvent(ExampleEvent.Type.ACTION_1));
+	}
+
+	public void HandleDoneFail()
+	{
+		context.Release(this);
+	}
+}
+```
+
+The context exposes a small class in called [Pin TODO:LINK](./pin) which stores and releases your object in a dictionary where it cannot not be garbage collected.
+
+Invoke Command Directly
+-----------------------
+
+If you are using event commands, I would try not to call a command directly. However it is possible and is exposed in the [DirectCommandMap TODO:LINK](./asdf).
 
 From here
 ------------
