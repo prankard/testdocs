@@ -23,31 +23,77 @@ A brief overview
 Extensions
 ----------
 
+There are a lot of extensions avalible and installed for you in the MVCSBundle, and a lot of them work together to function correctly.
+
+Lets talk about how some of them work.
+
+#### View Management
+
+View management, is something that is happening in the background listening to Views that get registered. And then giving that to the correct context to be processed.
+
+The **Container Registry** has a static dictionary of all containers. A container is the root of all views (often a context view). The Container Registry knows the relation of each container (if they are parents, siblings or children). Because this dictionary is static, it persists throughout multiple contexts.
+
+The **View Manager** knows about some containers. You have one assigned to a single context. Usually you will only have one container (the context view) but can have multiple root containers. When you add it here, it gets added to the container registry.
+
+The **Stage Crawler** extension uses the ViewManager's containers, and scans all children for View's to register. This is done incase the view's registered early and were not processed.
+
+The **Context View** just contains your root view, it assigns the view as a container to the View Manager.
+
+#### Expanding The Context
+
+The **Stage Sync** extension uses the ContextView's view as the object to sync the Context's lifecycle extension with.
+
+
+The **Viligence** extension changes the ```logger.Warn("Message") ``` and ```logger.Error("message")``` from the context into execeptions that are thrown.
+
+#### Advanced Mapping
+
+We have added the **IMatcher** classes as for checking types before being processed. This is used to help in the EventCommand, ViewProcessor and MediatorMap.
+
+#### Commands
+
+The **CommandCenter** classes is some classes for other extensions to use. The command center give you the command executor. Which can execute commands with a payload. This is great, but as a robotlegs user, it is not part of an extensions. Nothing is mapped yet.
+
+The **DirectCommandMap** is the simplist implementation of the CommamndCenter library. It mapps a class to give you a simple set of API to execute your commands with payloads.
+
+The **EventCommandMap** is the event based command center. This stores event types and listenes for them on the event dispatcher. Then when it hears the event it will add a injection rule for the event class and then fire the command.
+
+#### Mediation
+
+The **MediatorMap** adds a delegate to the ViewManager. This gives us the view when registered. The mediator map, attaches mediators and associates them with this view.
+The Mediator class uses the **LocalEventMap** a class to help manage listeners you've added and remove them all upon disposal.
+
+The **ViewProcessorMap**
+
+The **Modularity Extension**
+
 A fairly detailed overview
 
-* Command Center
-* Context View
-* Stage Sync
-* Direct Command Map
-* Console Logging
-* Injectable Logger
-* Injector Activity Logging
-* Event Command Map
-* Event Dispatcher
-* Local Event Map
-* Matching
+* [Command Center](../src/robotlegs/bender/extensions/commandCenter/readme.md)
+* [Context View](../src/robotlegs/bender/extensions/contextView/readme.md)
+	* Stage Sync
+	* Context View Listener Config
+* [Direct Command Map](../src/robotlegs/bender/extensions/directCommandMap/readme.md)
+* [Enhanced Logging](../src/robotlegs/bender/extensions/enhancedLogging/readme.md)
+	* [Console Logging](../src/robotlegs/bender/extensions/enhancedLogging/readme.md#TraceLoggerExtension)
+	* [Injectable Logger](../src/robotlegs/bender/extensions/enhancedLogging/readme.md#InjectableLoggerExtension)
+	* [Injector Activity Logging](../src/robotlegs/bender/extensions/enhancedLogging/readme.md#InjectorActivityLoggingExtension)
+* [Event Command Map](../src/robotlegs/bender/extensions/eventCommandMap/readme.md)
+* [Event Dispatcher](../src/robotlegs/bender/extensions/eventDispatcher/readme.md)
+* [Local Event Map](../src/robotlegs/bender/extensions/localEventMap/readme.md)
+* [Matching](../src/robotlegs/bender/extensions/matching/readme.md)
 	* InstanceOf Matcher
 	* Namespace Matcher
 	* Type Matcher
-* Mediator Map
-* Modularity Extension
+* [Mediator Map](../src/robotlegs/bender/extensions/mediatorMap/readme.md)
+* [Modularity Extension](../src/robotlegs/bender/extensions/modularity/readme.md)
 	* Module Connector
 * View Manager
 	* Container Registry
 	* Parent Finder
 	* View Notifier
-* View Processor Map
-* Vigilance
+* [View Processor Map](../src/robotlegs/bender/extensions/viewProcessorMap/readme.md)
+* [Vigilance](../src/robotlegs/bender/extensions/vigilance/readme.md)
 
 Including Platforms
 -------------------
