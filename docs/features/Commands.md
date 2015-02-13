@@ -82,7 +82,7 @@ public class ExampleCommand : ICommand
 Downcasting Events
 ------------------
 
-You can also downcast your event type to IEvent in your command if you want to tie more data event types to the same command. 
+You can also downcast your event type to IEvent in your command if you want to tie more data event types to the same command.
 
 Say I have ```EventClassA``` and ```EventClassB``` which both extend ```Event```  _(which implements ```IEvent```)_.
 
@@ -140,11 +140,11 @@ public class DetainedCommand()
 
 	[Inject]
 	public IContext context;
-	
+
 	public void Execute()
 	{
 		context.Detain(this);
-		
+
 		service.OnSomethingComplete += HandleDoneSuccess;
 		service.OnSomethingFailed += HandleDoneFail;
 		service.DoSomethingForLater();
@@ -153,10 +153,12 @@ public class DetainedCommand()
 	public void HandleDoneSuccess()
 	{
 		dispatcher.Dispatch(new ExampleEvent(ExampleEvent.Type.ACTION_1));
+		context.Release(this);
 	}
 
 	public void HandleDoneFail()
 	{
+    	Console.WriteLine("Failed");
 		context.Release(this);
 	}
 }

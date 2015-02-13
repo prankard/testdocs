@@ -2,7 +2,28 @@
 Logger
 ======
 
-todo
+The logger is 
+
+
+Getting a logger
+----------------
+
+Output Logs
+-----------
+
+So, you want to use the logs too? Cool. All you need is an ILogTarget.
+
+The context has a LogManager, which manages all ILogTargets. The syntax is simple:
+
+```csharp
+public class LogToFile : ILogTarget
+{
+	public void asdf()
+	{
+		
+	}
+}
+```
 
 From here
 ------------
