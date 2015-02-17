@@ -2,7 +2,7 @@
 Features
 ========
 
-#### [The Context](./features/Context.md)
+#### [Context](./features/Context.md)
 
 The core framework for Robotlegs is the context. It's is a simple item designed for installing other code via the Install and Configure methods.
 The context has a lifecycle phase, as in it can be initialized once, paused and resumed multiple times and finally destroyed.
@@ -36,7 +36,7 @@ Like Guards, they are used in the framework before a Command has been fired, Med
 
 #### [View Processor](./features/ViewProcessor.md)
 
-todo
+The view processor allows you to perform an action onto registered views. It uses the same IMatching system the Mediator Map uses so you can easily filter the action on certain views.
 
 #### [Logger](./features/Logger.md)
 

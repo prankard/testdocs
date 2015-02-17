@@ -17,14 +17,35 @@ You can also add more features to each platform if required by adding your own E
 MVCSBundle
 ----------
 
-The vanilla bundle...
+The orignal bundle comes packed with MVCS allowing for one context.
+
+**ConsoleLoggingExtension** - Gets our logging to log out to the console
+**VigilanceExtension** - Converts logger.Warn() into Errors because we strive for perfection
+**InjectableLoggerExtension** - Allows you to inject the logger for easy logging
+**EventDispatcherExtension** - Makes our single message channel to communicate
+**ModularityExtension** ... er useless?
+**DirectCommandMapExtension** - Allows you to call command directly without events
+**EventCommandMapExtension** - Ties events on the main channel to commands to be invoked
+**LocalEventMapExtension** - Gives us local event map to we can easily remove lots of events listeners in the Mediator class
+**ViewManagerExtension** - Allows us to call processes on views that get registered (MediatorMap  / ViewProcessorMap)
+**MediatorMapExtension** - Allows us to tie multiple meditors to views
+**ViewProcessorMapExtension** - Gives the user the ability to do anything else to views
+**FallbackContainerConfig** - Sets up all views in the ViewManager to be processed by this config (allows for only one context)
 
 UnityMVCSBundle
 ---------------
 
-What we've added...
+We've removed the Console Logging Extension, and have added the DebugLoggingExtension so the logger logs out to the correct console.
 
+We've added UnityStageCrawler, which takes the contextview and searches through it's components in children after intialization to process any views that might have already awoken.
 
+We've added a UnityParentFinder, which enables the ViewManager know who is parented to whom.
+
+We've included the modularity extension.
+
+We've added a UnityStateWatcher, which moniters the context view to know when it has initalized or been destroyed.
+
+We've added View and EventView classes, to easily extend and to be Mediated.
 
 
 From here

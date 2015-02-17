@@ -2,7 +2,21 @@
 Logger
 ======
 
-The logger is an
+The logger is an inbuilt tool for logging out from your code.
+It inbuilt features for five different severitys of logging.
+
+* DEBUG
+* INFO
+* WARN
+* ERROR
+* FATAL
+
+
+It is also possible to output the logs into multiple different API's.
+
+The logger also takes a source target, so you are always aware of which part of the app the log origniated from.
+
+If you ever write and extension it is highly reccomended that you use the logger so that the user of the extension has more information of what is going on.
 
 
 Getting a logger
@@ -85,7 +99,7 @@ public class ChatroomLogger : ILogTarget
 }
 ```
 
-The best thing about the logger is the potential to connect to other API's or visually for those hard to debug issues.
+The best I personally like about the logger is the potential to connect to other API's or a visual log for those hard to debug issues.
 
 From here
 ------------

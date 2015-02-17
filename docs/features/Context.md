@@ -1,5 +1,5 @@
 
-The Context
+Context
 ==========
 
 The context is the root of the framework with Robotlegs.

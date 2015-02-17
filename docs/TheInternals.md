@@ -4,7 +4,27 @@ The Internals
 Framework
 ---------
 
-A brief overview
+The framework of Robotlegs 2 is a lot smaller that it's predecessor. It's aim is to provide a small and lightweight base for installing other plugin base code with a few core features to initialize expandability.
+
+The framework is the Context class which incorperates and combines a set of smaller functional classes.
+
+#### Injector
+
+The injector is at the heart of Robotlegs. It's a dependancy provider allowing you to provide different values for Interfaces or Classes. This enables us to easily re-use code.
+
+#### Extension
+
+The **Extension Installer** give the classes a reference to the context. Enabling them to have complete access to the framework.
+
+The **Config Manager** allows user to configure based on pre-mapped values in the injector.
+
+#### Utilities
+
+The **Pin** keeps reference of object instances preventing them being garbage collected.
+
+The **Guards** are a simple class allowing/prevening things to happen.
+
+The **Hooks** are simple actions that happen in order.
 
 * Context
 	* Injector
@@ -58,12 +78,14 @@ The **DirectCommandMap** is the simplist implementation of the CommamndCenter li
 
 The **EventCommandMap** is the event based command center. This stores event types and listenes for them on the event dispatcher. Then when it hears the event it will add a injection rule for the event class and then fire the command.
 
-#### Mediation
+#### View Handling
 
 The **MediatorMap** adds a delegate to the ViewManager. This gives us the view when registered. The mediator map, attaches mediators and associates them with this view.
 The Mediator class uses the **LocalEventMap** a class to help manage listeners you've added and remove them all upon disposal.
 
 The **ViewProcessorMap**
+
+#### Modularity
 
 The **Modularity Extension**
 
@@ -88,7 +110,7 @@ A fairly detailed overview
 * [Mediator Map](../src/robotlegs/bender/extensions/mediatorMap/readme.md)
 * [Modularity Extension](../src/robotlegs/bender/extensions/modularity/readme.md)
 	* Module Connector
-* View Manager
+* [View Manager](../src/robotlegs/bender/extensions/viewManager/readme.md)
 	* Container Registry
 	* Parent Finder
 	* View Notifier
