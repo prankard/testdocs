@@ -20,16 +20,27 @@ MVCSBundle
 The orignal bundle comes packed with MVCS allowing for one context.
 
 **ConsoleLoggingExtension** - Gets our logging to log out to the console
+
 **VigilanceExtension** - Converts logger.Warn() into Errors because we strive for perfection
+
 **InjectableLoggerExtension** - Allows you to inject the logger for easy logging
+
 **EventDispatcherExtension** - Makes our single message channel to communicate
+
 **ModularityExtension** ... er useless?
+
 **DirectCommandMapExtension** - Allows you to call command directly without events
+
 **EventCommandMapExtension** - Ties events on the main channel to commands to be invoked
+
 **LocalEventMapExtension** - Gives us local event map to we can easily remove lots of events listeners in the Mediator class
+
 **ViewManagerExtension** - Allows us to call processes on views that get registered (MediatorMap  / ViewProcessorMap)
+
 **MediatorMapExtension** - Allows us to tie multiple meditors to views
+
 **ViewProcessorMapExtension** - Gives the user the ability to do anything else to views
+
 **FallbackContainerConfig** - Sets up all views in the ViewManager to be processed by this config (allows for only one context)
 
 UnityMVCSBundle

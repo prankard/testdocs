@@ -40,19 +40,19 @@ TypeMatchers are not internally checked for conflicts, so it's your responsibili
 
 There is no 'or' provided. Instead, use multiple matchers and map each of them to the same rules - ensuring that your rules aren't nested, or multiple matches will occur. For guidance on testing your matchers check out the TypeMatcher unit tests.
 
-## PackageMatcher Usage
+## NamespaceMatcher Usage
 
-The package matcher has the following api:
+The namespace matcher has the following api:
 
 ```as3
 require(fullPackage:String)
-anyOf(...packages)
-allOf(...pacakges)
+anyOf(...namespaces)
+allOf(...namespaces)
 ```
 
-You can only `require` one package. Multiple calls to `anyOf` and `allOf` can be chained. Multiple calls to `require` will throw an error.
+You can only `require` one namespace. Multiple calls to `anyOf` and `allOf` can be chained. Multiple calls to `require` will throw an error.
 
-The package matcher will be locked the first time it is used, but can be explicitly locked with a call to
+The namespace matcher will be locked the first time it is used, but can be explicitly locked with a call to
 
 	lock();
 

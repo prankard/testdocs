@@ -105,8 +105,8 @@ A fairly detailed overview
 * [Local Event Map](../src/robotlegs/bender/extensions/localEventMap/readme.md)
 * [Matching](../src/robotlegs/bender/extensions/matching/readme.md)
 	* InstanceOf Matcher
-	* Namespace Matcher
-	* Type Matcher
+	* [Type Matcher](../src/robotlegs/bender/extensions/matching/readme.md#TypeMatcher Usage)
+	* [Namespace Matcher](../src/robotlegs/bender/extensions/matching/readme.md#NamespaceMatcher Usage)
 * [Mediator Map](../src/robotlegs/bender/extensions/mediatorMap/readme.md)
 * [Modularity Extension](../src/robotlegs/bender/extensions/modularity/readme.md)
 	* Module Connector

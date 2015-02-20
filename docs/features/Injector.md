@@ -136,6 +136,7 @@ Throughout the application the following classes are injected into.
 	_To have access to injected properties at the earliest avaliable point, please use the [PostConstruct] tag_
 * Hooks - _Injected just before the Hook method_
 * Guards - _Injected just before the Approve method_
+* ViewProcess - Injected into just before the _Process_ method.
 
 If you want to inject anything outside of this framework. You can use the following:
 

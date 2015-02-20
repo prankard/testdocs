@@ -230,7 +230,7 @@ public MyService : IMyService
 {
 	[Inject]
 	public IEventDispatcher dispatcher;
-	
+
 	public void LoadSomething()
 	{
 		// Thread, you're very tired...
