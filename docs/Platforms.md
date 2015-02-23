@@ -1,6 +1,9 @@
 Platforms
 =========
 
+Overview
+--------
+
 The original Robotlegs framework was dependant on it's platform for view management.
 
 We've had to cut out some view management features in the vanilla bundle, and make it more expandable so you can add a platform.
@@ -14,10 +17,20 @@ The main benefits of having platform specific MVCS bundles are:
 
 You can also add more features to each platform if required by adding your own Extensions if appropriate.
 
-MVCSBundle
-----------
+Avaliable Platforms
+-------------------
 
-The orignal bundle comes packed with MVCS allowing for one context.
+* [Unity](./platforms/Unity.md)
+
+Adding your own platform
+------------------------
+
+We'd reccomend adding some of the features avalible when adding new platforms. Please see [this guide](./platforms/AddingAPlatform.md) to get started.
+
+The Vanillla MVCSBundle
+-----------------------
+
+Without platform specific code, the orignal bundle comes packed with MVCS allowing for one context.
 
 **ConsoleLoggingExtension** - Gets our logging to log out to the console
 
@@ -26,8 +39,6 @@ The orignal bundle comes packed with MVCS allowing for one context.
 **InjectableLoggerExtension** - Allows you to inject the logger for easy logging
 
 **EventDispatcherExtension** - Makes our single message channel to communicate
-
-**ModularityExtension** ... er useless?
 
 **DirectCommandMapExtension** - Allows you to call command directly without events
 
@@ -43,21 +54,7 @@ The orignal bundle comes packed with MVCS allowing for one context.
 
 **FallbackContainerConfig** - Sets up all views in the ViewManager to be processed by this config (allows for only one context)
 
-UnityMVCSBundle
----------------
-
-We've removed the Console Logging Extension, and have added the DebugLoggingExtension so the logger logs out to the correct console.
-
-We've added UnityStageCrawler, which takes the contextview and searches through it's components in children after intialization to process any views that might have already awoken.
-
-We've added a UnityParentFinder, which enables the ViewManager know who is parented to whom.
-
-We've included the modularity extension.
-
-We've added a UnityStateWatcher, which moniters the context view to know when it has initalized or been destroyed.
-
-We've added View and EventView classes, to easily extend and to be Mediated.
-
+If you want to find out more, check out [the internals](./TheInternals.md) page for more reference.
 
 From here
 ------------

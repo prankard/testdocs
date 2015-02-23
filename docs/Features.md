@@ -40,8 +40,12 @@ The view processor allows you to perform an action onto registered views. It use
 
 #### [Logger](./features/Logger.md)
 
-The logger is a simple tool to help you debug. It's logs with four different LogLevels and has the ability to tie in to your own systems. 
+The logger is a simple tool to help you debug. It's logs with four different LogLevels and has the ability to tie in to your own systems.
 You should be using the logger to debug when you write your extensions as it's useful for other people to see what's going on if things are not working.
+
+#### [Modularity](./features/Modularity.md)
+
+The modularity enables you to setup communication between each context's global EventDispatcher.
 
 From here
 ------------
