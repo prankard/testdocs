@@ -37,26 +37,36 @@ public class MyApplicationConfig : IConfig
 {
 	[Inject]
 	public IInjector injector;
-	
+
 	[Inject]
 	public IMediatorMap mediatorMap;
-	
+
 	[Inject]
 	public IEventCommandMap commandMap;
-	
+
 	[Inject]
 	public IEventDispatcher dispatcher;
+
+	[Inject]
+	public IContext context;
 
 	public void Configure()
 	{
 		injector.Map<IMyModel>().ToSingleton<MyModel>();
 		mediatorMap.Map<IMyView>().ToMediator<MyMediator>();
 		commandMap.Map(MyEvent.Type.STARTUP).ToCommand<StartupCommand>();
-		
-		dispatcher.Dispatch(new MyEvent(MyEvent.Type.STARTUP));
+
+        context.AfterInitializing(StartUp);
 	}
+
+	private void StartUp()
+    {
+		dispatcher.Dispatch(new MyEvent(MyEvent.Type.STARTUP));
+    }
 }
 ```
+
+We've added a 'AfterInitializing' handler for the context. So we can be sure to boot up our application with our command once all IConfigs have been configured.
 
 [Read more about the context and setting up](./features/Context.md)
 
@@ -156,18 +166,18 @@ public MyMediator : Mediator
 		AddViewListener(MyEvent.Type.DO_SOMETHING, Dispatch);
 		AddContextListener(MyEvent.Type.LISTEN, OnListenFromGlobalEventBus);
 	}
-	
+
 	public void Destroy()
 	{
 		// Here you should cleanup anything you setup
 		// (AddViewListener and AddContextListener methods are cleaned up for you)
 	}
-	
+
 	private void OnListenFromGlobalEventBus()
 	{
 		// Inform the view
 		view.HeardEvent();
-		
+
 		// Do something else
 		Dispatch(new MyEvent(MyEvent.Type.DO_SOMETHING_ELSE));
 	}
@@ -203,7 +213,7 @@ public class MyModel : IModel
 	}
 
 	private int _data;
-	
+
 	public void SetData(int data)
 	{
 		_data = data;
