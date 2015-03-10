@@ -117,11 +117,6 @@ A fairly detailed overview
 * [View Processor Map](../src/robotlegs/bender/extensions/viewProcessorMap/readme.md)
 * [Vigilance](../src/robotlegs/bender/extensions/vigilance/readme.md)
 
-Including Platforms
--------------------
-
-What you need to do to include a platform, and how it ties in
-
 
 From here
 ------------

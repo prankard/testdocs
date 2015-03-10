@@ -1,6 +1,6 @@
 
 Context
-==========
+=======
 
 The context is the root of the framework with Robotlegs.
 The context comes with a few things.
@@ -35,12 +35,12 @@ Configured Config 2
 ```
 
 Bundles and Extensions
-===================
+======================
 
 With the context, all 3rd party content can be installed and also configured with robotlegs. The three interfaces you have access to are IBundle, IExtensions and IConfig. Each are their own place.
 
 IBundle
----------
+-------
 
 This is a wrapper for installing a set or group of extensions. It has the same functionaliy as IExtension but is named appropriatly. For example, we have MVCSBundle which installs all the extensions we use to handle our Model, View, Controller, Services code.
 
@@ -66,7 +66,7 @@ namespace robotlegs.example.bundle
 ```
 
 IExtension
--------------
+----------
 
 This gets passed the context so you are free to do any injecor mapping as soon as this boots up.
 
@@ -90,7 +90,7 @@ public void Extend(IContext context)
 	_injector = context.Injector;
 	_injector.Map<MyExtension>().AsSingleton();
 
-	context.BeforeInitializing(BeforeInitializing as Action);
+	context.BeforeInitializing(BeforeInitializing);
 }
 
 public void BeforeInitializing()
@@ -104,12 +104,12 @@ public void BeforeInitializing()
 ```
 
 ConfigManager and IConfigs
-=======================
+==========================
 
 The Config Manager is another class supplied by the robotlegs framework. This is similar to the Extension Installer, however here you get to configure the mapping made in the previous extensions.
 
 IConfig
---------
+-------
 
 The config manager installs a default IConfig handler for you. What this does is after the initiation phase when all the Extensions have been installed, is to inject into your IConfig any dependencies and then run their 'Configure' method.
 Here is an example of what an IConfig might look like:
@@ -182,11 +182,11 @@ public class XMLMatcher : IMatcher
 }
 ``` 
 
-For more detail about making extensions. Please check out the [asdf]() section.
+For more detail about making extensions. Please check out the [Writing An Extension](../WritingAnExtension.md) section.
 
 
 From here
-------------
+---------
 
 * [Readme](../../README.md)
 	* [A Brief Overview](../ABriefOverview.md)
@@ -200,6 +200,8 @@ From here
 		* [Hooks](./Hooks.md)
 		* [View Processor](./ViewProcessor.md)
 		* [Logger](./Logger.md)
+		* [Modularity](./Modularity.md)
 	* [Platforms](../Platforms.md)
+	* [Writing An Extension](../WritingAnExtension.md)
 	* [Common Problems](../CommonProblems.md)
 	* [The internals (how it all works)](../TheInternals.md)

@@ -172,7 +172,7 @@ Invoke Command Directly
 If you are using event commands, I would try not to call a command directly. However it is possible and is exposed in the [DirectCommandMap TODO:LINK](./asdf).
 
 From here
-------------
+---------
 
 * [Readme](../../README.md)
 	* [A Brief Overview](../ABriefOverview.md)
@@ -186,6 +186,8 @@ From here
 		* [Hooks](./Hooks.md)
 		* [View Processor](./ViewProcessor.md)
 		* [Logger](./Logger.md)
+		* [Modularity](./Modularity.md)
 	* [Platforms](../Platforms.md)
+	* [Writing An Extension](../WritingAnExtension.md)
 	* [Common Problems](../CommonProblems.md)
 	* [The internals (how it all works)](../TheInternals.md)
