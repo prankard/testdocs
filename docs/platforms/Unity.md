@@ -99,6 +99,21 @@ When your views register. It will now try and find the closest parent. If it has
 
 Each context doesn't share their global IEventDispatcher by default. See the [Modularity](../features/Modularity.md) section on how to communicate between contexts.
 
+Editor Scripts
+--------------
+
+To help with development. One of the really useful things for debugging in the StrangeIOC framework was adding your Mediators as Components. Although I disagree that mediators *have* to be components, having the visual cue that your item had been mediated is **very** useful!
+
+#### Mediator Attach
+
+Tied as a Mediator Manager class. Unity will add a tiny component to your view indicating that it has been Mediated. It will remove it from view when it is unmediated.
+
+> Note: This script is **NOT** the mediator. Removing this script will just remove your visual cue of it being mediated.
+
+#### Unity Singletons
+
+We've added Unity Singletons which adds to your ContextView. Visually, you can see what singletons have been mapped at the point. Note that by default, your **AsSingleton** and **ToSingleton** do not instantiate by default until it is first pulled out of the injector. This class will help you visualise this.
+
 Bundle Differences
 ------------------
 
