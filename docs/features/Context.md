@@ -2,6 +2,47 @@
 Context
 =======
 
+The context is where everything begins in Robotlegs. Instead of Extending a context to add to it, you add into it's plugin architecture with Extensions and Configs. From within these you also have reference to the context.
+
+The Context Provides you with the following features.
+
+- Injector
+- Extension Installer
+- Config Installer
+- Pin
+- Logging
+
+
+The Injector
+------------
+
+Logger
+------
+
+
+Pin
+---
+
+The pin is a *tiny* class that will keep a resource in memory and prevent it from being garbage collected. It was primarilly added to Detain and Release a command, however you are free to use it for any other purpose.
+
+The pin class has been added to the IContext interface:
+
+```csharp
+void Load()
+{
+	context.Detain(this);
+}
+
+void LoadComplete()
+{
+	context.Release(this);
+}
+```
+
+
+
+
+
 The context is the root of the framework with Robotlegs.
 The context comes with a few things.
 

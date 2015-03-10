@@ -1,3 +1,11 @@
+Extract Context, extensions into 'WritingAnExtension'
+
+Write PIN in Context,
+In context, check HandleXML code into REAL code.
+
+https://github.com/prankard/testdocs/blob/master/docs/features/Commands.md Link PIN correctly
+https://github.com/prankard/testdocs/blob/master/docs/features/Commands.md Remove Signals TODO
+
 
 Robotlegs
 ========
@@ -31,6 +39,7 @@ Getting Started
 * [A Brief Overview](./docs/ABriefOverview.md)
 * [Features](./docs/Features.md)
 * [Platforms](./docs/Platforms.md)
+* [Writing An Extension](./docs/WritingAnExtension.md)
 * [Common Problems](./docs/CommonProblems.md)
 * [The internals (how it all works)](./docs/TheInternals.md)
 
@@ -44,6 +53,6 @@ Acknowledgements
 
 Thanks to the original [Robotlegs Contributors](https://github.com/robotlegs/robotlegs-framework/graphs/contributors) who developed the first and second revision of the framework. Your original source has been beautifully done with painfully complex patterns.
 
-Thanks to all who have [contributed to this repository](./graphs/contributors). Without you I'm not sure if this port would have been finished.
+Thanks to all who have [contributed to this repository](./graphs/contributors). Without you this port would be vaporware.
 
 And thanks to whomever is reading this text, if you are benefiting from this framework it's made the year writing this port worthwhile.
