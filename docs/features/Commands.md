@@ -53,7 +53,7 @@ So with an event mapped to a command. All you have to do to dispatch the event w
 dispatcher.Dispatch(new EventClass(EventClass.Type.ACTION_1));
 ```
 
-It's good to know that you can also invoke a command with the [DirectCommandMap TODO:LINK](./link.md) or if you don't like events with the [Signals TODO:EXTENSION](./link) extension instead.
+It's good to know that you can also invoke a command with the [DirectCommandMap](../../src/robotlegs/bender/extensions/directCommandMap/readme.md) or if you don't like events with the [Signals TODO:EXTENSION](./link) extension instead.
 
 
 Getting data in the command
@@ -169,7 +169,7 @@ The context exposes a small class in called [Pin TODO:LINK](./pin) which stores 
 Invoke Command Directly
 -----------------------
 
-If you are using event commands, I would try not to call a command directly. However it is possible and is exposed in the [DirectCommandMap TODO:LINK](./asdf).
+If you are using event commands, I would try not to call a command directly. However it is possible and is exposed in the [DirectCommandMap](../../src/robotlegs/bender/extensions/directCommandMap/readme.md).
 
 From here
 ---------

@@ -59,7 +59,7 @@ public class BadCommand
 }
 ```
 
-If you want to know when the injector runs on Robotlegs classes, [look here](./features/Injector.md#Framework classes that are injected into).
+If you want to know when the injector runs on Robotlegs classes, [look here](./features/Injector.md#Framework-classes-that-are-injected-into).
 
 From here
 ---------
