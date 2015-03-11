@@ -2,10 +2,10 @@
 Features
 ========
 
-Context
-=======
+[Context](./features/Context.md)
+=========
 
-#### [Context](./features/Context.md)
+The context is where everything begins. It's actually made up of the following classes, but it gives you access to them all.
 
 The core framework for Robotlegs is the context. It's is a simple item designed for installing other code via the Install and Configure methods.
 The context has a lifecycle phase, as in it can be initialized once, paused and resumed multiple times and finally destroyed.
@@ -16,11 +16,21 @@ If you have such a large application you can even add multiple contexts for diff
 Behind the context, supplying dependencies throughout the extensions is the Injector.
 It's got lot of nifty features on how you want to provide values.
 
-#### Pin
-
 #### Extension Installer
 
+Used before context initialization, your context can install your plugin architecture code into 
+
 #### Config Manager
+
+
+
+#### Lifecycle
+
+The context goes though a lifecycle. It's not once that can be re-used. The context can be initialized once. Paused and resumed many times and finally destroyed. You have access to do things during these states.
+
+#### Pin
+
+This is a tiny class that retains instances in memory. A good example is when you want to detain a command in memory.
 
 #### [Logger](./features/Logger.md)
 

@@ -1,11 +1,3 @@
-Extract Context, extensions into 'WritingAnExtension'
-
-Write PIN in Context,
-In context, check HandleXML code into REAL code.
-
-https://github.com/prankard/testdocs/blob/master/docs/features/Commands.md Link PIN correctly
-https://github.com/prankard/testdocs/blob/master/docs/features/Commands.md Remove Signals TODO
-
 
 Robotlegs
 ========
